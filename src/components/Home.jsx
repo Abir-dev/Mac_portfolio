@@ -4,7 +4,7 @@ import useWindowStore from '#store/window';
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import gsap from 'gsap';
-import { Draggable } from 'gsap/Draggable';
+import { Draggable } from 'gsap/all';
 import React from 'react'
 
 gsap.registerPlugin(Draggable, useGSAP);
