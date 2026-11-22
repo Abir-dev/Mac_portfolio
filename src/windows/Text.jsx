@@ -17,26 +17,31 @@ const Text = () => {
         <h2>{name}</h2>
       </div>
 
-      <div className="p-8 bg-white overflow-y-auto max-h-[70vh] space-y-5">
-        {image && (
-          <img
+      <div className="p-5 bg-white space-y-6">
+        {image ? (
+          <div className="w-full">
+            <img
             src={image}
             alt={name}
-            className="w-full max-h-52 object-cover rounded-lg"
+            className="w-full h-auto rounded"
           />
-        )}
+          </div>
+        ) : null }
 
-        {subtitle && (
-          <h3 className="text-lg font-semibold text-gray-900">{subtitle}</h3>
-        )}
+        {subtitle ? (
+          <h3 className="text-lg font-semibold">{subtitle}</h3>
+        ) : null}
 
-        {Array.isArray(description) &&
-          description.map((paragraph, index) => (
-            <p key={index} className="text-sm leading-relaxed text-gray-700">
-              {paragraph}
-            </p>
+        {Array.isArray(description) && description.length > 0 ? (
+          <div className="space-y-3 leading-relaxed text-base text-gray-800">
+            {description.map((paragraph, index) => (
+              <p key={index}>
+                {paragraph}
+              </p>
           ))}
-      </div>
+          </div>
+        ) : null}
+        </div>
     </>
   );
 };
